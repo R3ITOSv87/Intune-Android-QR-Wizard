@@ -1,0 +1,2 @@
+# Intune-Android-QR-Wizard
+ 

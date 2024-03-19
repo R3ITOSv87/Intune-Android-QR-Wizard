@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi QR Wizard for Android Enterprise Enrollment with Intune</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>WiFi QR Wizard for Android Enterprise Enrollment with Intune</h2>
+        <p>Adds WiFi Support to your Enrollment-QR-Code</p>
+        <div class="form-group">
+            <label for="fileUpload">Upload JSON File:</label><br>
+            <input type="file" id="fileUpload" name="fileUpload"><br>
+        </div>
+        <div class="form-group">
+            <label for="exportData">Export Data:</label><br>
+            <textarea id="exportData" name="exportData" rows="10" cols="50"></textarea><br>
+        </div>
+        <div class="form-group">
+            <label for="ssid">Wi-Fi SSID:</label><br>
+            <input type="text" id="ssid" name="ssid"><br>
+        </div>
+        <div class="form-group">
+            <label for="password">Wi-Fi Password:</label><br>
+            <input type="text" id="password" name="password"><br>
+        </div>
+        <div class="form-group">
+            <label for="security">Security Type:</label><br>
+            <select id="security" name="security">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="NONE">None</option>
+            </select><br>
+        </div>
+        <div class="form-group">
+            <label for="hidden">Is Wi-Fi Hidden?</label><br>
+            <select id="hidden" name="hidden">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select><br>
+        </div>
+        <button onclick="generateQRCode()">Generate QR Code</button>
+        <div id="qrcode"></div>
+        <button id="downloadBtn" style="display:none;">Download QR Code</button>
+        <button onclick="downloadPDF()">Download PDF Guide</button>
+        <button id="resetBtn">Clear Form</button>
+        <div class="help-container">
+            <button class="help-button">Need Help? Click Here: Exporting QR Codes from Intune</button>
+            <div class="help-content">
+                <p>To view and export QR codes from Microsoft Intune, please follow these steps:</p>
+                <ol>
+                    <li>Log in to the Microsoft Endpoint Manager admin center.</li>
+                    <li>Navigate to Devices &gt; Enroll devices &gt; Corporate device identifiers.</li>
+                    <li>Find the section for QR code tokens and select the token you wish to export.</li>
+                    <li>Click on the 'Export' button to download the QR code's JSON file.</li>
+                </ol>
+                <p>Use this JSON file to generate a QR code on this page for device configuration.</p>
+                <p><a href="https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise" target="_blank">More Help? Go to the Microsoft Documentation</a></p>
+            </div>
+            
+        </div>        
+        <div class="github-link">
+            <a href="https://github.com/r3itosv87" target="_blank">
+                <img src="github.png" alt="GitHub Logo" style="height: 50px;"/>
+            </a>
+        </div>        
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="script/script.js"></script>
+    
+</body>
+</html>
