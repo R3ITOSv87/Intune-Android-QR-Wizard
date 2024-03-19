@@ -1,6 +1,6 @@
 # Android Enterprise with Intune - Wi-Fi QR Wizard
 
-**[Access the Wi-Fi QR Wizard tool here](https://sample.gitpages.com)**
+**[Access the Wi-Fi QR Wizard tool here](https://r3itosv87.github.io/Intune-Android-QR-Wizard/)**
 
 This project provides a web-based tool to generate QR codes for configuring Wi-Fi settings on Android devices enrolled in Microsoft Intune.
 
