@@ -1,68 +1,112 @@
-# Android Enterprise with Intune - Wi-Fi QR Wizard
+# WiFi QR-Code Wizard for Android Enterprise & Intune
 
-**[Access the Wi-Fi QR Wizard tool here](https://r3itosv87.github.io/Intune-Android-QR-Wizard/)**
+**[🚀 Start the WiFi QR-Code Wizard online](https://r3itosv87.github.io/Intune-Android-QR-Wizard/)**
 
-This project provides a web-based tool to generate QR codes for configuring Wi-Fi settings on Android devices enrolled in Microsoft Intune.
+A free, open-source web tool for generating Android Enterprise QR codes with fully customized WiFi settings, designed for seamless device enrollment via Microsoft Intune.
+
+---
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Background](#background)
+- [Overview](#overview)
+- [Why This Project?](#why-this-project)
 - [Features](#features)
-- [How to Use](#how-to-use)
-- [Deployment](#deployment)
-- [Helpful Resources](#helpful-resources)
+- [How It Works](#how-it-works)
+- [Self-Hosting / Deployment](#self-hosting--deployment)
+- [Resources](#resources)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
+---
 
-The Android Enterprise with Intune - Wi-Fi QR Wizard is designed to address the issue of limited Wi-Fi configuration options available when creating enrollment keys (QR codes) in Microsoft Intune. Some QR codes generated in Intune lack the ability to configure Wi-Fi settings during the initial setup of Android devices. This project aims to provide a solution by allowing administrators to upload JSON files exported from Intune and generate QR codes with customizable Wi-Fi configurations.
+## Overview
 
-## Background
+The **WiFi QR-Code Wizard** empowers IT admins and power users to generate Android Enterprise enrollment QR codes **with WiFi configuration included** – even when Intune’s built-in options are limited.  
+Just upload the Intune enrollment JSON, add your WiFi details (SSID, WPA/WPA2/WPA3, etc.), and download a ready-to-use QR code for zero-touch Android setup.
 
-The idea for this project originated from the frustration faced by IT administrators when setting up Android devices for enrollment via Intune. While Intune provides a convenient way to create enrollment keys (QR codes), some keys do not offer the option to configure Wi-Fi settings during the initial device setup. This limitation can be problematic, especially in enterprise environments where specific Wi-Fi configurations are required for device provisioning.
+---
 
-To address this issue, the Android Enterprise with Intune - Wi-Fi QR Wizard was developed. By leveraging JSON files exported from Intune, this web-based tool enables administrators to customize Wi-Fi settings and generate QR codes that include the necessary configurations. This simplifies the enrollment process for both administrators and end users, ensuring seamless device provisioning with the correct Wi-Fi settings pre-configured.
+## Why This Project?
+
+Microsoft Intune enables QR-based Android enrollment, but often these QR codes **don’t support pre-configured WiFi access**.  
+This can disrupt fully automated device provisioning and cause friction for end-users during initial setup.
+
+**The WiFi QR-Code Wizard solves this:**
+
+- Merge WiFi settings into any exported Intune enrollment QR JSON.
+- Generate a standards-compliant QR code with all credentials.
+- No cloud, no upload – everything runs 100% locally in your browser.
+
+---
 
 ## Features
 
-- **QR Code Generation**: Easily generate QR codes for Wi-Fi configuration based on JSON files exported from Microsoft Intune.
-- **Customizable Wi-Fi Settings**: Configure SSID, password, security type, and hidden network options to meet specific requirements.
-- **Intuitive Interface**: User-friendly interface for uploading JSON files, entering Wi-Fi details, and generating QR codes.
-- **Help Section**: Detailed instructions on exporting QR codes from Intune and additional help resources.
+- **Universal QR Generation:**  
+  Create Android Enterprise enrollment QR codes with any WiFi configuration (SSID, password, WPA/WPA2/WPA3, open/hidden).
+- **Supports Modern Security:**  
+  Full support for WPA3 and hidden SSIDs.
+- **Local-Only Processing:**  
+  All data stays on your device – nothing is uploaded or stored externally.
+- **User-Friendly Workflow:**  
+  Guided steps, help texts, and clear instructions built in.
+- **Comprehensive Help:**  
+  Step-by-step guide for exporting the right Intune JSON and deploying QR codes.
+- **100% Open Source:**  
+  Self-host or run via GitHub Pages.
 
-## How to Use
+---
 
-To use the Android Enterprise with Intune - Wi-Fi QR Wizard:
+## How It Works
 
-1. Clone or download the repository to your local machine.
-2. Open the `index.html` file in a web browser.
-3. Follow the on-screen instructions to upload your JSON file, enter Wi-Fi details, and generate the QR code.
-4. Optionally, download the generated QR code for deployment.
+1. **Export the QR code JSON**  
+   From Microsoft Intune, export the Android enrollment profile as a JSON file.  
+   _See the integrated Help section in the Wizard for detailed steps!_
 
-For more detailed instructions, refer to the [Help Section](#help-section) within the application.
+2. **Open the WiFi QR-Code Wizard**  
+   Use [the online tool](https://r3itosv87.github.io/Intune-Android-QR-Wizard/) or open `index.html` locally.
 
-## Deployment
+3. **Upload & Configure**  
+   - Upload your Intune JSON.
+   - Enter your WiFi SSID, password, security type (WPA/WPA2/WPA3, WEP, Open), and specify if the SSID is hidden.
+   - Optionally, review or adjust the raw JSON.
 
-You can deploy this project using GitHub Pages or any web hosting service of your choice. To deploy on GitHub Pages:
+4. **Generate & Deploy**  
+   - Click "Generate QR Code".
+   - Download the QR image or a PDF setup guide.
+   - Scan the QR on your Android device during initial setup – WiFi and enrollment just work!
 
-1. Fork this repository to your GitHub account.
-2. Enable GitHub Pages in the repository settings and choose the `main` branch as the source.
-3. Access the deployed application using the provided GitHub Pages URL.
+---
 
-## Helpful Resources
+## Self-Hosting / Deployment
 
-- [Microsoft Intune Deployment Guide: Enrollment for Android Devices](https://learn.microsoft.com/en-us/mem/intune/fundamentals/deployment-guide-enrollment-android)
-- [Microsoft Intune Enrollment Documentation](https://learn.microsoft.com/en-us/mem/intune/fundamentals/deployment-guide-enrollment-android)
+You can use the WiFi QR-Code Wizard:
+- Locally (`index.html` in any browser)
+- On GitHub Pages
+- On any web server
 
-These resources provide additional information on enrollment for Android devices in Microsoft Intune.
+**To deploy on GitHub Pages:**
+1. Fork or clone this repo.
+2. Push to your own GitHub account.
+3. Enable GitHub Pages (main branch).
+4. Share your published URL!
+
+---
+
+## Resources
+
+- [Microsoft Intune: Android Enrollment Guide](https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise)
+- [Microsoft Docs: Intune Fundamentals](https://learn.microsoft.com/en-us/mem/intune/fundamentals/)
+- [Google: Android Zero-Touch Enrollment](https://support.google.com/work/android/answer/7514513?hl=en)
+
+---
 
 ## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or create a pull request.
+Found a bug or have an idea?  
+Open an issue or send a pull request – all contributions welcome!
+
+---
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/R3ITOSv87/Intune-Android-QR-Wizard/blob/main/LICENCE).
-
+MIT License – see [LICENSE](./LICENSE) for details.
