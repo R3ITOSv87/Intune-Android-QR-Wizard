@@ -3,66 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WiFi QR Wizard for Android Enterprise Enrollment with Intune</title>
+    <title>WiFi QR Code Wizard for Android Enterprise Enrollment (Intune)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>WiFi QR Wizard for Android Enterprise Enrollment with Intune</h2>
-        <p>Adds WiFi Support to your Enrollment-QR-Code</p>
+        <h2>WiFi QR Code Wizard for Android Enterprise Enrollment (Intune)</h2>
+        <p>
+            This tool allows you to <strong>combine WiFi configuration with your Intune QR enrollment code</strong>.<br>
+            Perfect for zero-touch Android onboarding – no manual WiFi entry required!
+        </p>
+
         <div class="form-group">
-            <label for="fileUpload">Upload JSON File:</label><br>
-            <input type="file" id="fileUpload" name="fileUpload"><br>
+            <label for="fileUpload"><strong>Step 1: Upload Intune Enrollment QR JSON</strong></label><br>
+            <input type="file" id="fileUpload" name="fileUpload" accept=".json"><br>
+            <small>
+                Export this file from the Microsoft Intune admin portal.<br>
+                <a href="#" onclick="document.querySelector('.help-content').style.display='block'; return false;">
+                    See instructions below
+                </a>
+            </small>
         </div>
+
         <div class="form-group">
-            <label for="exportData">Export Data:</label><br>
-            <textarea id="exportData" name="exportData" rows="10" cols="50"></textarea><br>
+            <label for="exportData"><strong>Step 2: (Optional) Edit/Review Enrollment Data</strong></label><br>
+            <textarea id="exportData" name="exportData" rows="10" cols="50" placeholder="Your JSON enrollment data will appear here..."></textarea><br>
+            <small>
+                Advanced: Manually review or edit the JSON configuration if needed.
+            </small>
         </div>
+
         <div class="form-group">
-            <label for="ssid">Wi-Fi SSID:</label><br>
-            <input type="text" id="ssid" name="ssid"><br>
+            <label for="ssid"><strong>WiFi SSID</strong></label><br>
+            <input type="text" id="ssid" name="ssid" placeholder="WiFi network name (SSID)">
         </div>
+
         <div class="form-group">
-            <label for="password">Wi-Fi Password:</label><br>
-            <input type="text" id="password" name="password"><br>
+            <label for="password"><strong>WiFi Password</strong></label><br>
+            <input type="text" id="password" name="password" placeholder="WiFi password (leave blank for open networks)">
         </div>
+
         <div class="form-group">
-            <label for="security">Security Type:</label><br>
+            <label for="security"><strong>WiFi Security Type</strong></label><br>
             <select id="security" name="security">
-                <option value="WPA">WPA/WPA2</option>
-                <option value="WEP">WEP</option>
-                <option value="NONE">None</option>
+                <option value="WPA">WPA / WPA2 / WPA3 (recommended)</option>
+                <option value="WEP">WEP (legacy, not secure)</option>
+                <option value="NONE">None (Open network, not recommended)</option>
             </select><br>
+            <small>
+                <b>WPA</b> covers WPA, WPA2, and WPA3 networks. Use for most modern WiFi.
+            </small>
         </div>
+
         <div class="form-group">
-            <label for="hidden">Is Wi-Fi Hidden?</label><br>
+            <label for="hidden"><strong>Is the WiFi Network Hidden?</strong></label><br>
             <select id="hidden" name="hidden">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select><br>
+                <option value="false">No (visible)</option>
+                <option value="true">Yes (hidden SSID)</option>
+            </select>
         </div>
+
         <button onclick="generateQRCode()">Generate QR Code</button>
         <div id="qrcode"></div>
         <button id="downloadBtn" style="display:none;">Download QR Code</button>
-        <button onclick="downloadPDF()">Download PDF Guide</button>
-        <button id="resetBtn">Clear Form</button>
+        <button onclick="downloadPDF()">Download Setup Guide (PDF)</button>
+        <button id="resetBtn">Clear All</button>
+
         <div class="help-container">
-            <button class="help-button">Need Help? Click Here: Exporting QR Codes from Intune</button>
-            <div class="help-content">
-                <p>To view and export QR codes from Microsoft Intune, please follow these steps:</p>
+            <button class="help-button" onclick="document.querySelector('.help-content').style.display='block'">Need Help? Show Export Instructions</button>
+            <div class="help-content" style="display:none;">
+                <p><strong>How to export Android enrollment QR code JSON from Microsoft Intune:</strong></p>
                 <ol>
-                    <li>Log in to the Microsoft Endpoint Manager admin center.</li>
-                    <li>Navigate to Devices &gt; Enroll devices &gt; Corporate device identifiers.</li>
-                    <li>Find the section for QR code tokens and select the token you wish to export.</li>
-                    <li>Click on the 'Export' button to download the QR code's JSON file.</li>
+                    <li>Go to the <a href="https://endpoint.microsoft.com/" target="_blank">Microsoft Endpoint Manager admin center</a>.</li>
+                    <li>Navigate to <em>Devices &gt; Enroll devices &gt; Corporate device identifiers</em>.</li>
+                    <li>Select your Android Enterprise enrollment token.</li>
+                    <li>Click <b>Export</b> to download the JSON file.</li>
                 </ol>
-                <p>Use this JSON file to generate a QR code on this page for device configuration.</p>
-                <p><a href="https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise" target="_blank">More Help? Go to the Microsoft Documentation</a></p>
+                <p>Upload this JSON above, then enter your WiFi details to generate the final QR code.</p>
+                <p>
+                    Official documentation: 
+                    <a href="https://learn.microsoft.com/en-us/mem/intune/enrollment/connect-intune-android-enterprise" target="_blank">
+                        Intune Android Enterprise Enrollment Guide
+                    </a>
+                </p>
+                <button onclick="document.querySelector('.help-content').style.display='none'">Close Help</button>
             </div>
-            
-        </div>        
+        </div>
+        
         <div class="github-link">
-            <a href="https://github.com/r3itosv87" target="_blank">
+            <a href="https://github.com/r3itosv87" target="_blank" title="Source code on GitHub">
                 <img src="https://raw.githubusercontent.com/R3ITOSv87/Intune-Android-QR-Wizard/48eeaedbf64f0ba78319400f88962879cd2ca128/png/github.png" alt="GitHub Logo" style="height: 50px;"/>
             </a>
         </div>        
